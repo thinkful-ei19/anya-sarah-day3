@@ -5,34 +5,33 @@ const cipher = {
   b: 3,
   c: 4,
   d: 5,
-  other: ' '
 };
 
-function crackingTheCode(message) {
-  let result = '';
-  let array = message.split(' ');
+function crackingTheCode(array) {
+  let result = [];
+  //let array = message.split(' ');
   for (let i = 0; i < array.length; i++) {
-    if //(Object.keys(cipher)[0] === 'a') {
-      (array[i] [0] === 'a') {
-        result += array[i][1];
-      //result += array[i][cipher.a-1];
-    } else if (Object.keys(cipher)[1] === 'b') {
-      result +=  array[i][cipher.b-1];
-    } else if (Object.keys(cipher)[2] === 'c') {
-      result += array[i][3];
-      //result += array[i][cipher.c-1];
-    } else if (Object.keys(cipher)[3] === 'd') {
-      result += array[i][cipher.d-1];
-    } else {
-      result += cipher.other;
-    }      
+    let rule = cipher[array[i][0]];
+    rule ? result.push(array[i][rule-1]) : result.push(' ');
+   
+    // if (array[i] [0] === Object.keys(cipher)[0]) {
+    //   //(array[i] [0] === 'a') {
+    //     result += array[i][1];
+    //   //result += array[i][cipher.a-1];
+    // } else if (array[i] [0] === Object.keys(cipher)[1]) {
+    //   result +=  array[i][cipher.b-1];
+    // } else if (array[i] [0] === Object.keys(cipher)[2]) {
+    //   result += array[i][3];
+    //   //result += array[i][cipher.c-1];
+    // } else if (array[i] [0] === Object.keys(cipher)[3]) {
+    //   result += array[i][cipher.d-1];
+    // } else {
+    //   result += Object.values(cipher)[4];
+    // }      
   } return result;
 }
-console.log(Object.keys(cipher)[0])
-
-console.log(crackingTheCode('candy donut'))
   
-//console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
+
 
 //condensed version
 // const decode = function (word) {
@@ -40,12 +39,11 @@ console.log(crackingTheCode('candy donut'))
 //   return word[word[0].charCodeAt() - 96];
 // };
 
-// const decodeWords = function (words) {
-//   return words
-//     .split(' ')
-//     .map(decode)
-//     .join('');
-// };
+const decodeWords = function (words) {
+  return crackingTheCode(words.split(' ')).join('');
+};
+
+console.log(decodeWords('craft block argon meter bells brown croon droop'));
 
 //console.log(decodeWords('craft block argon meter bells brown croon droop'));
 
