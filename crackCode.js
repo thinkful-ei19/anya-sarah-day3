@@ -19,7 +19,8 @@ function crackingTheCode(message) {
     } else if (Object.keys(cipher)[1] === 'b') {
       result +=  array[i][cipher.b-1];
     } else if (Object.keys(cipher)[2] === 'c') {
-      result += array[i][cipher.c-1];
+      result += array[i][3];
+      //result += array[i][cipher.c-1];
     } else if (Object.keys(cipher)[3] === 'd') {
       result += array[i][cipher.d-1];
     } else {
@@ -28,8 +29,10 @@ function crackingTheCode(message) {
   } return result;
 }
 console.log(Object.keys(cipher)[0])
+
+console.log(crackingTheCode('candy donut'))
   
-console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
+//console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
 
 //condensed version
 // const decode = function (word) {
